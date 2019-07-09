@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {{ event.id }}
+    {{ event.title }}
+    {{ event.description }}
+    {{ event.location }}
+    {{ event.price }}
+    <a href = "/events/{{ event.id }}/purchase">Get tickets</a>
+    {% if current_user.id == event.user_id %}
+        <a href="/events/{{ event.id }}/edit" class="btn btn-primary">Edit</a>
+        <a href="/events/{{ event.id }}/delete" class="btn btn-primary">Delete</a>
+    {% endif %}
+{% endblock %}

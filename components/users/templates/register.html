@@ -1,0 +1,38 @@
+{% extends'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block content %}
+
+
+
+<div class ="container">
+    <div class="jumbotron jumbotron-fluid py-2" style="background-color:transparent ">
+        <div>
+            <h1 class="display-4 text-black-50">Register</h1>
+            <p class="lead text-black-50">Please fill in this form to create an account.</p>
+        </div>
+        </div>
+        {% for field in form.errors %}
+{% for error in form.errors[field] %}
+    <div class="alert alert-error">
+        <strong>Error!</strong> {{error}}
+    </div>
+{% endfor %}
+{% endfor %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flashes p-2" style = "list-style-type:none; background-color: rgba(0, 252, 84, 0.589); border-radius:5px">
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      {% endwith %}
+    <div class = "col-4">
+        <h1>Ticket Box</h1>
+    </div>
+    <div class="col-md-6">
+        {{ wtf.quick_form(form) }}
+    </div>
+</div>
+
+{% endblock %}

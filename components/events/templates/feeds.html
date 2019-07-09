@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block content %}
+
+<h1> Events </h1>
+<div class="mx-5">
+    <div class="row mx-5">
+        {% for event in events %}
+        <div class="card m-2" style="width: 52rem;">
+            <img src={{ event.image_url }} class="card-img-top" alt="...">
+            <div class="card-body">
+                {{ event.starting_date }}
+                <h3 href="" class="card-title">{{ event.title }}</h3>
+                <p class="card-text">{{ event.description|truncate(100, False) }}</p>
+                <a href="/events/{{ event.id }}" class="btn btn-primary">View More</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
