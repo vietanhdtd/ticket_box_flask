@@ -1,4 +1,7 @@
-### FTW - Ticketbox
+# CoderSchool FTW - * Ticket Box *
+
+Created with love by: Viet Anh Nguyen
+
 
 * [ ] Define requirement
     * [ ] User management
